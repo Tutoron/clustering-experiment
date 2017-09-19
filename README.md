@@ -1,4 +1,4 @@
-# clustering-experiment
+# Clustering Experiment
 A minimal demo to see if clustering is going to work
 
 ## Sample used
