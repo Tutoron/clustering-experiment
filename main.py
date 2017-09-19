@@ -5,13 +5,18 @@ from scipy import misc
 import matplotlib.pyplot as plt
 from random import choice, shuffle
 
+# read in the images into greyscale mats
 def read_sample(name):
     data = misc.imread(name, False, "L")
     return data
 
+# see if one pixel in the image is something that we are interested in
+# preprocessing for the transformation
 def is_intereting_point(val):
     return val < 100
 
+# transform the data from greyscale image to coordinates
+# before it can be fed into the clustering process
 def transform_data(raw):
     w = len(raw)
     h = len(raw[0])
@@ -22,6 +27,7 @@ def transform_data(raw):
                 res.append([float(i), float(j)])
     return res
 
+# generate a blank image with the same resolution
 def gen_cpy(raw):
     w = len(raw)
     h = len(raw[0])
@@ -172,8 +178,6 @@ def TFKMeansCluster(vectors, noofclusters):
 
 def main():
     raw = read_sample("img/sample1.png")
-    # plt.imshow(raw)
-    # plt.show()
     data = transform_data(raw)
     noofclusters = 15
     centroids, assignments = TFKMeansCluster(data, noofclusters)
