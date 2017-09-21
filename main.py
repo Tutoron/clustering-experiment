@@ -177,9 +177,9 @@ def TFKMeansCluster(vectors, noofclusters):
         return centroids, assignments
 
 def main():
-    raw = read_sample("img/sample1.png")
+    raw = read_sample("img/sample5.png")
     data = transform_data(raw)
-    noofclusters = 15
+    noofclusters = 3
     centroids, assignments = TFKMeansCluster(data, noofclusters)
     print("centroids: ")
     print(centroids)
